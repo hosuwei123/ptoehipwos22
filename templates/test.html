@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    
+    <title>「主人與狗」異想世界！</title>
+        <!-- 響應式網站 -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!-- Boostrap 導入程式 -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+        <!-- 連接css調顏色 -->
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/navbar.css') }}">
+  </head>
+  <body>
+     <!-- 導航列 -->
+ <nav class="navbar navbar-expand-lg navbar-light">
+  <!-- logo -->
+  <a class="navbar-brand" href="https://www.google.com.tw/">jimmy channel</a>
+  <!-- 第一部份 手機板-->
+  <button class="navbar-toggler" type="button" data-bs-toggler="collapse" data-bs-target="#linkbar">
+      <span class="navbar-toggler-icon"></span>
+  </button>
+  <!-- 第2部份 電腦板與上面連接-->
+  <div class="collapse navbar-collapse" id="linkbar">
+      <!--內容  -->
+      <ul class="navbar-nav me-auto">
+          <li class="nav-item">
+              <a class="nav-link" href="#">home</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="https://githubtest1.herokuapp.com/">查詢股票</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="#">關於我們</a>
+          </li>
+      </ul>
+  </div>
+</nav> 
+    <h1>歡迎來到「老人與狗」異想世界！</h1>
+    <form action="/" method="post">
+      <h3>輸入股票代碼：<input type="text" name="nm1" placeholder="輸入股票代碼"> 
+      <input type="submit"></h3>
+    </form>
+    <table border="1">
+      <h1>你查詢的資料：{{ stockname }}</h1>
+      <thead>
+        {% for nmp2 in nmp_t0 %} 
+        <th>{{ nmp2 }}</th>
+        {% endfor %}
+      </thead>
+      <tbody>
+        {% for nmp1 in nmp_n0 %}
+        <tr>
+          {% for nlen in range(len_0) %}
+          <td>{{ nmp1[nlen] }}</td>
+          {% endfor %}   
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table> 
+    <table border="1">
+      <thead>
+        {% for nmp2 in nmp_t1 %} 
+        <th>{{ nmp2 }}</th>
+        {% endfor %}
+      </thead>
+      <tbody>
+        {% for nmp1 in nmp_n1 %}
+        <tr>
+          {% for nlen in range(len_1) %}
+          <td>{{ nmp1[nlen] }}</td>
+          {% endfor %}   
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>     
+    <table border="1">
+      <thead>
+        {% for nmp2 in nmp_t2 %} 
+        <th>{{ nmp2 }}</th>
+        {% endfor %}
+      </thead>
+      <tbody>
+        {% for nmp1 in nmp_n2 %}
+        <tr>
+          {% for nlen in range(len_2) %}
+          <td>{{ nmp1[nlen] }}</td>
+          {% endfor %}   
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>   
+    
+    <table border="2">
+      <thead>
+        {% for nmp2 in nmp_t5 %} 
+        <th>{{ nmp2 }}</th>
+        {% endfor %}
+      </thead>
+      <tbody>
+        {% for nmp1 in nmp_n5 %}
+        <tr>
+          {% for nlen in range(len_5) %}
+          <td>{{ nmp1[nlen] }}</td>
+          {% endfor %}   
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>   
+
+
+
+    <table border="2">
+      <thead>
+        {% for nmp2 in nmp_t3 %} 
+        <th>{{ nmp2 }}</th>
+        {% endfor %}
+      </thead>
+      <tbody>
+        {% for nmp1 in nmp_n3 %}
+        <tr>
+          {% for nlen in range(len_3) %}
+          <td>{{ nmp1[nlen] }}</td>
+          {% endfor %}   
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table> 
+    <table border="2">
+      <thead>
+        {% for nmp2 in nmp_t4 %} 
+        <th>{{ nmp2 }}</th>
+        {% endfor %}
+      </thead>
+      <tbody>
+        {% for nmp1 in nmp_n4 %}
+        <tr>
+          {% for nlen in range(len_4) %}
+          <td>{{ nmp1[nlen] }}</td>
+          {% endfor %}   
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table> 
+      <h3>★前一日<font color="#FF0000">{{ nmp_t0[2] }}:{{ nmp_n0[0][2] }}元</font></h3>
+      <fieldset style="width:600px">
+      <legend>預測股價輸入</legend>
+      <div class="Data-Content">
+        <div class="Data-Title">
+            <div class="AlignRight">
+              <label for="txt_name">請輸入EPS:</label><br />
+              <label for="txt_birth"> 請輸入本益比:</label><br />
+
+            </div>
+        </div>
+      <div class="Data-Items">
+        <input id="EPS" placeholder="請輸入EPS"  type=”number”/><br />
+        <input id="PE" placeholder="請輸入本益比"  type=”number”/><br />
+
+       <button type="button" onclick="myFunction()">提交</button><br />
+        </div>
+     </div>
+    </fieldset>
+    <style type="text/css">
+      .Data-Content {
+          width: 65%; /* 表單寬度 */
+          line-height: 40px;
+      }  
+      .Data-Title {
+          float: left;
+          width: 35%; /* Label寬度，視情況調整 */
+          margin-right: 20px;
+      }  
+      .Data-Items {
+          float: left;
+          width: 25%;
+      }  
+      .AlignRight {
+          text-align: right;
+      }
+  </style>
+     <!-- 顯示區 --> 
+    <fieldset style="width:600px">
+    <legend>預測結果</legend>
+    <h3 id="demo"></h3>
+    <font color="#FF0000"> <h3 id="demo1"></h3></font>
+    <h3 id="demo2"></h3>
+    </fieldset>
+<script>
+function myFunction() {
+    var x,z,v,y,t;
+    // 取得輸入input id="numb" 的值
+    z = document.getElementById("EPS").value;//EPS
+    v = document.getElementById("PE").value;//本益比
+    x =z*v;//預估股價EPS*PE
+    t={{ nmp_n0[0][2] }}/x*100;//預估與現價比，現價/預估價*100
+    t=t.toFixed(2);//取小數2位
+    // 如果現價比太低，建議方式
+    if (t<50){
+      y="目前股價太低(強烈建議大買)";	 	
+     }
+    else if(t<80){
+      y="目前股價太低(建議小買)";
+    } 
+	else{
+ 		y="目前股價太高(賣出)";
+ 	}
+	document.getElementById("demo").innerHTML="你預估股價"+x+"元";
+  document.getElementById("demo1").innerHTML = y;//建議內容
+  document.getElementById("demo2").innerHTML = "目前預估股價比"+t+"%";
+  
+}
+</script>
+<!-- 分隔線 -->
+<hr>
+<h2><strong>我的歷史查詢紀錄</strong></h2>
+<textarea name="text" id="text" rows="8" cols="30"></textarea>
+<button name="button" value="message" id="message">留言</button>
+<button name="button" value="statistics" id="statistics" onclick="sum()">統計</button>
+<ul id="ul"></ul>
+
+<script>
+ var text=document.getElementById("text");// 获取所需元素对象
+ var msg=document.getElementById("message");
+ var ul=document.getElementById("ul");
+ var sta=document.getElementById("statistics");
+ var num=0;
+ msg.onclick=function(){// 给发布按钮绑定点击事件
+     if(text.value==""){
+       alert("沒有內容");
+       return false;
+     }else{// 用户有输入内容则获取到该内容赋值给创建的元素li进行显示
+       
+       var li=document.createElement('li');// 1.创建元素
+       li.innerHTML=text.value //+ "<a href='javascript:;'>删除</a>";   // 将用户输入的内容赋值给创建的li元素并且在后面添加一个a标签用于后续删除该留言
+       // 2.添加元素
+       //ul.appendChild(li);// 这样写留言是追加到后面显示的
+       ul.insertBefore(li,ul.children[0]);// 让新增的留言在最上面显示，即从下往上显示的顺序
+                
+       num++;
+     }
+     text.value="";// 最后将留言输入框中的内容清空方便再次留言
+    }
+    function sum(){
+      alert('共有'+num+'條信息');
+    }
+
+</script>
+
+
+
+</body>
+</html>
